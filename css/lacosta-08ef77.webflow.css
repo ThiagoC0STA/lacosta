@@ -248,8 +248,8 @@ blockquote {
 }
 
 .container.footer {
-  padding-top: 6em;
-  padding-bottom: 1em;
+  padding-top: 3em;
+  padding-bottom: 0em;
 }
 
 .container.no-padding {
@@ -617,7 +617,7 @@ blockquote {
   letter-spacing: -0.02em;
   margin-bottom: 16px;
   font-family: Thicccboi, sans-serif;
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 400;
   line-height: 1.483em;
 }
@@ -2139,8 +2139,8 @@ blockquote {
 }
 
 .sponsor-bar {
-  padding-top: 80px;
-  padding-bottom: 80px;
+  padding-top: 20px;
+  padding-bottom: 20px;
   display: flex;
   overflow: hidden;
 }
@@ -6644,7 +6644,8 @@ blockquote {
   display: flex;
   overflow: hidden;
   white-space: nowrap;
-  animation: scroll 50s linear infinite;
+  width: 100%;
+  animation: scroll 35s linear infinite;
 }
 
 .img-sponsor {
@@ -6652,10 +6653,10 @@ blockquote {
 }
 
 @keyframes scroll {
-  from {
+  0% {
     transform: translateX(0);
   }
-  to {
-    transform: translateX(-100%);
+  100% {
+    transform: translateX(-50%);
   }
 }
