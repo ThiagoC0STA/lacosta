@@ -1,7 +1,25 @@
-:root {
+/* :root {
   --color-2: #063a6d;
   --color-3: #032340;
   --color-9: #35629c;
+  --black: var(--white);
+  --white: white;
+  --color-11: #92c4ff;
+  --color-12: #ebf5ff;
+  --lines: #c2cedd;
+  --color-7\<deleted\|variable-d41f2bf9-bd51-a6cc-8fef-a346c2c02741\>: #f7f7f7;
+  --color-10: #1e87fc;
+  --color-4: #0052a3;
+  --color-6\<deleted\|variable-38b0bb52-3477-a6ff-65c3-559991adea97\>: #e7e7e7;
+  --color-5\<deleted\|variable-89e72e50-d056-9298-bdb4-9929a75defbb\>: #c7c7c7;
+  --color-8\<deleted\|variable-4925e380-0092-f78c-d0c3-57b6f5d60ac8\>: white;
+  --empty: rgba(255, 255, 255, 0);
+} */
+
+:root {
+  --color-2: #002449;
+  --color-3: #00376e;
+  --color-9: #056cdb;
   --black: var(--white);
   --white: white;
   --color-11: #92c4ff;
