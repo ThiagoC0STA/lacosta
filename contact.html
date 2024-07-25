@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html
   data-wf-page="669857dc58ffaca63b71ca47"
   data-wf-site="669857dc58ffaca63b71c96e"
@@ -81,7 +80,6 @@
         <div class="nav-wrapper">
           <nav role="navigation" class="nav-menu w-nav-menu">
             <a href="./index.html" class="nav-link w-nav-link">Home</a>
-
             <a href="./about/about.html" class="nav-link w-nav-link">Sobre</a>
             <a href="./service.html" class="nav-link w-nav-link">Serviços</a>
             <a href="./contact.html" class="nav-link w-nav-link">Contato</a>
@@ -250,25 +248,17 @@
             "
             class="content-form-block w-form"
           >
-            <form
-              id="mailchimp-form"
-              name="wf-form-Email-Form-2"
-              data-name="Email Form"
-              method="POST"
-              class="form"
-              data-wf-page-id="669857dc58ffaca63b71ca47"
-              data-wf-element-id="334a00ce-1085-9a43-72ec-20e529342efa"
-            >
+            <form id="contact-form" method="post">
               <div class="w-layout-grid grid-2-colmn">
                 <div id="w-node-_334a00ce-1085-9a43-72ec-20e529342efc-3b71ca47">
                   <input
                     class="text-field w-input"
                     maxlength="256"
-                    name="FNAME"
+                    name="from_name"
                     data-name="Nome 2"
                     placeholder="Nome Completo"
                     type="text"
-                    id="Nome-2"
+                    id="mce-FNAME"
                     required=""
                   />
                 </div>
@@ -276,11 +266,11 @@
                   <input
                     class="text-field w-input"
                     maxlength="256"
-                    name="EMAIL"
+                    name="email"
                     data-name="Email 3"
                     placeholder="Digite seu e-mail"
                     type="email"
-                    id="Email-3"
+                    id="mce-EMAIL"
                     required=""
                   />
                 </div>
@@ -288,11 +278,11 @@
                   <input
                     class="text-field w-input"
                     maxlength="256"
-                    name="PHONE"
+                    name="phone"
                     data-name="Telefone 2"
                     placeholder="Número de Telefone"
                     type="tel"
-                    id="Telefone-2"
+                    id="mce-PHONE"
                     required=""
                   />
                 </div>
@@ -300,28 +290,28 @@
                   <input
                     class="text-field w-input"
                     maxlength="256"
-                    name="COMPANY"
+                    name="company"
                     data-name="Empresa 2"
                     placeholder="Nome da Empresa"
                     type="text"
-                    id="Empresa-2"
+                    id="mce-COMPANY"
                   />
                 </div>
                 <div id="w-node-_334a00ce-1085-9a43-72ec-20e529342f04-3b71ca47">
                   <input
                     class="text-field w-input"
                     maxlength="256"
-                    name="WEBSITE"
+                    name="website"
                     data-name="Website 2"
                     placeholder="Website"
                     type="text"
-                    id="Website-2"
+                    id="mce-WEBSITE"
                   />
                 </div>
                 <div id="w-node-_334a00ce-1085-9a43-72ec-20e529342f06-3b71ca47">
                   <textarea
-                    id="Mensagem-2"
-                    name="MESSAGE"
+                    id="mce-MESSAGE"
+                    name="message"
                     maxlength="5000"
                     data-name="Mensagem 2"
                     placeholder="Por favor, digite sua mensagem aqui..."
@@ -329,15 +319,42 @@
                     class="text-field message w-input"
                   ></textarea>
                 </div>
+
                 <input
                   type="submit"
                   data-wait="Por favor, espere..."
-                  id="w-node-_334a00ce-1085-9a43-72ec-20e529342f08-3b71ca47"
                   class="primary-button-outline _3 w-button"
                   value="Enviar Mensagem"
                 />
               </div>
             </form>
+
+            <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+            <script>
+              (function () {
+                emailjs.init("XF2otHxMygruC8RIQ"); // Substitua pela sua chave de API do EmailJS
+              })();
+
+              document
+                .getElementById("contact-form")
+                .addEventListener("submit", function (event) {
+                  event.preventDefault();
+
+                  emailjs
+                    .sendForm("service_g13rsii", "template_azm9jb1", this)
+                    .then(
+                      function () {
+                        window.location.href =
+                          "https://lacostacorretora.netlify.app/obrigado.html";
+                      },
+                      function (error) {
+                        alert(
+                          "Erro ao enviar a mensagem: " + JSON.stringify(error)
+                        );
+                      }
+                    );
+                });
+            </script>
           </div>
         </div>
       </div>
@@ -933,57 +950,27 @@
         </div>
       </div>
     </div>
+
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
     <script>
+      (function () {
+        emailjs.init("XF2otHxMygruC8RIQ"); 
+      })();
+
       document
-        .getElementById("mailchimp-form")
+        .getElementById("contact-form")
         .addEventListener("submit", function (event) {
           event.preventDefault();
-          const formData = new FormData(this);
-          const data = {
-            email_address: formData.get("EMAIL"),
-            status: "subscribed",
-            merge_fields: {
-              FNAME: formData.get("FNAME"),
-              PHONE: formData.get("PHONE"),
-              COMPANY: formData.get("COMPANY"),
-              WEBSITE: formData.get("WEBSITE"),
-              MESSAGE: formData.get("MESSAGE"),
+
+          emailjs.sendForm("service_g13rsii", "template_azm9jb1", this).then(
+            function () {
+              window.location.href =
+                "https://lacostacorretora.netlify.app/obrigado.html";
             },
-            SUBJECT: "Novo Cliente LaCosta",
-          };
-
-          fetch(
-            "https://us14.api.mailchimp.com/3.0/lists/a4b491374c/members/",
-            {
-              method: "POST",
-              headers: {
-                Authorization:
-                  "Basic " +
-                  btoa("anystring:a4d9634605218af35dae8d5b8eaaabe7-us14"),
-                "Content-Type": "application/json",
-              },
-              body: JSON.stringify(data),
+            function (error) {
+              alert("Erro ao enviar a mensagem: " + JSON.stringify(error));
             }
-          )
-            .then((response) => response.json())
-            .then((data) => {
-              if (data.status === "subscribed") {
-                window.location.href = "./obrigado.html";
-              } else {
-                console.log(response);
-                console.log(data);
-
-                alert(
-                  "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente."
-                );
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert(
-                "Ocorreu um erro ao enviar sua mensagem. Por favor, tente novamente."
-              );
-            });
+          );
         });
     </script>
 
