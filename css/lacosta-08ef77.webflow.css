@@ -3297,10 +3297,10 @@ blockquote {
 .logo-icon {
   z-index: 2;
   background-color: var(--white);
-  background-image: url("../images/Logo-Head.svg");
+  background-image: url("../images/shield.png");
   background-position: 50%;
   background-repeat: no-repeat;
-  background-size: 24px;
+  background-size: 33px;
   width: 60px;
   height: 40px;
   padding: 8px;
