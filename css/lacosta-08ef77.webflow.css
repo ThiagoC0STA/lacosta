@@ -699,16 +699,16 @@ blockquote {
   transform: scale(1.1);
 }
 
-.primary-button._2.w--current {
+/* .primary-button._2.w--current {
   color: #fff;
   background-color: #000;
   border-color: #000;
-}
+} */
 
-.primary-button._2.w--current:hover {
+/* .primary-button._2.w--current:hover {
   background-color: #fc6c32;
   border-color: #fc6c32;
-}
+} */
 
 .primary-button._2.small {
   border-color: var(--color-9);
